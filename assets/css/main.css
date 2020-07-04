@@ -145,12 +145,21 @@ body {
     font-weight: bolder;
 }
 
-@keyframes mover {
+@keyframes moveup {
     0% {
         transform: translateY(0);
     }
     100% {
         transform: translateY(-10px);
+    }
+}
+
+@keyframes movedown {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
 

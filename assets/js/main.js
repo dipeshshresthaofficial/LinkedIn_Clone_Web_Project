@@ -19,22 +19,38 @@ document.addEventListener('DOMContentLoaded', e => {
     });
 
 
-    // var likeBtnRef = document.querySelector(".like-div");
-    // likeBtnRef.addEventListener('click', e => {
-    //     console.log(e);
-    // });
 
     var elements = document.getElementsByClassName("like-div");
-
+    var currentLikePost = "";
+    var lastLikePost = [0, 0];
+    console.log(lastLikePost);
     var myFunction = function() {
         var attribute = this.getAttribute("data-myattribute");
-
-        var likeRef = document.getElementById('like-' + attribute);
+        console.log(attribute)
+        currentLikePost = 'like-' + attribute;
+        var likeRef = document.getElementById(currentLikePost);
         likeCount = parseInt(likeRef.innerHTML);
-        likeCount += 1;
-        likeRef.innerHTML = "+1";
-        likeRef.style.color = "green";
-        likeRef.style.animation = "mover 1s";
+
+        if (lastLikePost[attribute - 1] === 0) {
+            likeCount += 1;
+            likeRef.innerHTML = "+1";
+            likeRef.style.color = "green";
+            likeRef.style.animation = "moveup 1s";
+            lastLikePost[attribute - 1] += 1;
+            elements[attribute - 1].style.transform = "rotate(10deg)";
+
+
+        } else {
+            likeCount -= 1;
+            likeRef.innerHTML = "-1";
+            likeRef.style.color = "red";
+            likeRef.style.animation = "movedown 1s";
+            lastLikePost[attribute - 1] -= 1;
+            elements[attribute - 1].style.transform = "rotate(-10deg)";
+
+        }
+
+        console.log(lastLikePost)
 
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
@@ -42,10 +58,13 @@ document.addEventListener('DOMContentLoaded', e => {
         const work = async() => {
             await sleep(500)
             likeRef.style.animation = "none";
+            console.log(likeCount)
             likeRef.innerHTML = likeCount;
             likeRef.style.color = "orangered";
+            elements[attribute - 1].style.transform = "rotate(0deg)";
             //code
         }
+
         work()
     };
 
