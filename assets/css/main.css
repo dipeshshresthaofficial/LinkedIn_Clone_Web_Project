@@ -22,6 +22,10 @@ body {
     top: 0;
 }
 
+#footer-to-header {
+    display: none;
+}
+
 .logo>img {
     width: 40px;
     border-radius: 50%;
@@ -139,6 +143,26 @@ body {
     border: none;
 }
 
+.like-div,
+button {
+    cursor: pointer;
+}
+
+.like-detail {
+    color: orangered;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
 .footer>img {
     width: 35px;
 }
@@ -161,6 +185,12 @@ body {
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
+    /* .footer {
+        display: none;
+    }
+    #footer-to-header {
+        
+    } */
     .story-section {
         padding-left: 200px;
         padding-right: 200px;
@@ -174,8 +204,8 @@ body {
     }
 }
 
-@media (min:width: 200px) and (max-width:374px) {
+@media (min-width: 200px) and (max-width:374px) {
     * {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 }
