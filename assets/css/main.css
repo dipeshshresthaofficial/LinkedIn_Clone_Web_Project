@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'PT Serif', serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 body {
@@ -71,8 +71,6 @@ body {
     padding-bottom: 8px;
 }
 
-.story-body {}
-
 .story-content {
     background-color: #fff;
     padding: 10px;
@@ -101,6 +99,7 @@ body {
 
 .story-body-img {
     text-align: center;
+    width: 90px;
 }
 
 .more-content {
@@ -152,4 +151,31 @@ body {
     bottom: 0;
     margin-top: 8px;
     background-color: #fff;
+}
+
+@media (min-width: 1440px) {
+    .story-section {
+        padding-left: 280px;
+        padding-right: 280px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .story-section {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .story-section {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+@media (min:width: 200px) and (max-width:374px) {
+    * {
+        overflow: hidden;
+    }
 }
